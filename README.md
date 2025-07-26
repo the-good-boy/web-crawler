@@ -14,7 +14,7 @@ A lightweight, configurable web crawler written in Go that builds a searchable a
 - **Benchmarking**: Built-in performance measurement tools
 
 ## How It Works
-
+![Crawler](images/Crawler.png)
 The crawler implements a breadth-first search algorithm to systematically explore the web starting from your seed URL. Each page is:
 
 1. Fetched using Go's HTTP client
@@ -23,6 +23,7 @@ The crawler implements a breadth-first search algorithm to systematically explor
 4. Stored in MongoDB with a full-text search index
 
 The search interface leverages MongoDB's keyword analyzer to create an inverted index, enabling fast text searches across your archive.
+![Search](images/AtlasSearch.png)
 
 ## Future Improvements
 

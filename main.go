@@ -19,7 +19,7 @@ func main() {
 	db := DatabaseConnection{access: webArchiveAccess, uri: "", client: nil, collection: nil}
 	db.connect()
 
-	beginUrl := flag.String("url", "https://en.wikipedia.org/wiki/List_of_websites", "the url you want to start the crawling with!")
+	beginUrl := flag.String("url", "https://commoncrawl.org/", "the url you want to start the crawling with!")
 	crawlLimit := flag.Int("crawlSize", 20, "Maximum number of webpages you want to crawl.")
 	flag.Parse()
 	visited := Visited{

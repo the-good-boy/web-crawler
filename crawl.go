@@ -8,9 +8,9 @@ import (
 )
 
 type WebPage struct {
-	href    string
-	title   string
-	content string
+	Href    string `bson:"href"`
+	Title   string `bson:"title"`
+	Content string `bson:"content"`
 }
 
 func Crawl(url string, node *html.Node, q *Queue, visited *Visited, db *DatabaseConnection) {
@@ -24,7 +24,7 @@ func Crawl(url string, node *html.Node, q *Queue, visited *Visited, db *Database
 
 func crawlWebPage(node *html.Node, href string, q *Queue, visited *Visited) WebPage {
 	wp := WebPage{
-		href: href,
+		Href: href,
 	}
 
 	var (
@@ -43,8 +43,8 @@ func crawlWebPage(node *html.Node, href string, q *Queue, visited *Visited) WebP
 		tagCount++
 
 		if !titleFound && node.Type == html.ElementNode && node.Data == "title" && node.FirstChild != nil && visited.size() <= visited.maxLimit {
-			wp.title = node.FirstChild.Data
-			fmt.Printf("Count: %d | %s -> %s\n", visited.size(), href, wp.title)
+			wp.Title = node.FirstChild.Data
+			fmt.Printf("Count: %d | %s -> %s\n", visited.size(), href, wp.Title)
 			titleFound = true
 		}
 
@@ -68,7 +68,7 @@ func crawlWebPage(node *html.Node, href string, q *Queue, visited *Visited) WebP
 		}
 
 		if inBody && node.Type == html.TextNode && pageContentLength < 500 {
-			wp.content += strings.TrimSpace(node.Data) + " "
+			wp.Content += strings.TrimSpace(node.Data) + " "
 			pageContentLength += len(node.Data)
 		}
 
