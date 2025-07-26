@@ -2,6 +2,8 @@
 
 A lightweight, configurable web crawler written in Go that builds a searchable archive of crawled web pages using MongoDB Atlas Search.
 
+![Crawler](images/Crawler.png)
+
 ## Features
 
 - **Customizable Crawling**: Specify a seed URL and maximum crawl limit via command-line flags
@@ -14,7 +16,7 @@ A lightweight, configurable web crawler written in Go that builds a searchable a
 - **Benchmarking**: Built-in performance measurement tools
 
 ## How It Works
-![Crawler](images/Crawler.png)
+![WebCrawlerDiagram](images/WebCrawler.png)
 The crawler implements a breadth-first search algorithm to systematically explore the web starting from your seed URL. Each page is:
 
 1. Fetched using Go's HTTP client
